@@ -1,1 +1,26 @@
-print("Hello World!")
+import numpy as np
+import tensorflow as tf
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Embedding, LSTM, Dense
+
+text = input("Enter text: ")
+tokenizer = Tokenizer()
+text = text.lower()
+
+tokenizer.fit_on_texts([text])
+total_words = len(tokenizer.word_index)
+print("Total no. of words = ",total_words)
+
+tokenizer.word_index
+# print(tokenizer.word_index)
+
+input_sequences = []
+for line in text.split("\n"):
+    token_list = tokenizer.texts_to_sequences([line])[0]
+    for i in range(1, len(token_list)):
+        n_gram_sequence = token_list[:i+1]
+        input_sequences.append(n_gram_sequence)
+
+
