@@ -23,4 +23,11 @@ for line in text.split("\n"):
         n_gram_sequence = token_list[:i+1]
         input_sequences.append(n_gram_sequence)
 
+# print(input_sequences)
+max_sequence_len = max([len(x) for x in input_sequences])
+input_sequences = np.array(pad_sequences(input_sequences, maxlen=max_sequence_len, padding='pre'))
 
+X = input_sequences[:,:-1]
+Y = input_sequences[:,-1]
+
+Y = tf.keras.utils.to_categorical(Y, num_classes=total_words+1)
