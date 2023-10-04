@@ -31,3 +31,13 @@ X = input_sequences[:,:-1]
 Y = input_sequences[:,-1]
 
 Y = tf.keras.utils.to_categorical(Y, num_classes=total_words+1)
+
+model = Sequential()
+model.add(Embedding(total_words+1, 10, input_length=max_sequence_len-1))
+model.add(LSTM(150))
+model.add(Dense(total_words+1, activation='sigmoid'))
+model.summary()
+
+model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+history = model.fit(X, Y, epochs=10, verbose=1)
+
