@@ -8,9 +8,11 @@ It is a challenging task due to the ambiguity of words and the lack of training 
 
 
 Stage 1 - Dataset selection​
+
 Selecting a corpus for processing the data to predict the missing word.
 
 Stage 2 - Preprocessing
+
 Stop word removal is prevented to improve the accuracy
 
 
