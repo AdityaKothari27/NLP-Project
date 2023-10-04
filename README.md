@@ -6,9 +6,13 @@ Blank prediction is the task of predicting the missing word in a sentence.​
 
 It is a challenging task due to the ambiguity of words and the lack of training data.​
 
+
 Stage 1 - Dataset selection​
+Selecting a corpus for processing the data to predict the missing word.
 
 Stage 2 - Preprocessing
+Stop word removal is prevented to improve the accuracy
+
 
 Stage 3 - Developing the Model
 
