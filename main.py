@@ -41,3 +41,4 @@ model.summary()
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 history = model.fit(X, Y, epochs=10, verbose=1)
 
+
