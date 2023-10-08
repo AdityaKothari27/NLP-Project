@@ -36,9 +36,22 @@ model = Sequential()
 model.add(Embedding(total_words+1, 10, input_length=max_sequence_len-1))
 model.add(LSTM(150))
 model.add(Dense(total_words+1, activation='sigmoid'))
-model.summary()
+#model.summary()
 
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 history = model.fit(X, Y, epochs=10, verbose=1)
 
+input_text = input("Enter text: ")
+next_words = 10
+for _ in range(next_words):
+    token_list = tokenizer.texts_to_sequences([input_text])[0]
+    token_list = pad_sequences([token_list], maxlen=max_sequence_len-1, padding='pre')
+    predicted = model.predict_classes(token_list, verbose=0)
+    output_word = ""
+    for word, index in tokenizer.word_index.items():
+        if index == predicted:
+            output_word = word
+            break
+    input_text += " " + output_word
 
+print(input_text)
