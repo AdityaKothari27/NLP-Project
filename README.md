@@ -1,6 +1,6 @@
 # Blank Prediction Assistant
 
-Research Paper - https://ieeexplore.ieee.org/document/10126302
+Research Paper used for reference - https://ieeexplore.ieee.org/document/10126302
 
 Blank prediction is the task of predicting the missing word in a sentence.​
 
